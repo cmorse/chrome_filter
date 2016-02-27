@@ -1,0 +1,48 @@
+{
+    "manifest_version": 2,
+    "name": "Domain search filter",
+    "description": "Remove domains from search results",
+    "version": "0.0.2",
+    "icons": {
+        "128": "logo-128.png",
+        "48": "logo-48.png"
+    },
+    "permissions": [
+        "storage"
+   ],
+    "options_ui": {
+        "page": "options.html",
+        "chrome_style": true
+    },
+    "background": {
+        "persistent": false,
+        "scripts": ["background.js"]
+    },
+    "content_scripts": [
+        {
+            "css": ["filter.css"],
+            "js": ["jquery.js", "jqmodal.js", "filter.js"],
+            "matches": ["*://*.google.com/*", "*://*.bing.com/*", "*://search.yahoo.com/*"],
+            "run_at": "document_end"
+        },
+        {
+            "js": ["filter_google.js"],
+            "matches": ["*://*.google.com/*"],
+            "run_at": "document_end"
+        },
+        {
+            "js": ["filter_bing.js"],
+            "matches": ["*://*.bing.com/*"],
+            "run_at": "document_end"
+        },
+        {
+            "js": ["filter_yahoo.js"],
+            "matches": ["*://search.yahoo.com/*"],
+            "run_at": "document_end"
+        }
+   ],
+    "web_accessible_resources": [
+        "delete.png",
+        "ban.svg"
+   ]
+}

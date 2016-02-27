@@ -1,0 +1,42 @@
+#filterList li {
+	font-size: 125%;
+}
+
+button.block {
+	min-width: 1em;
+	min-height: 1em;
+	background: url(ban.svg);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	border: 0;
+	margin: auto 5px auto 3px;
+}
+
+.jqmWindow {
+    display: none;
+    
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    
+    margin-left: -200px;
+    width: 400px;
+    
+    background-color: #EEE;
+    color: #333;
+    border: 1px solid black;
+    padding: 12px;
+}
+
+.jqmWindow .container .buttons {
+    padding-top: 2px;
+	float: right;
+}
+
+.jqmOverlay {
+	background-color: #000;
+}
+
+#domainBlockText {
+	width: 100%;
+}
