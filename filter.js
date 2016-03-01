@@ -76,15 +76,13 @@ function processPage(filters, results) {
     addFilterToPage(results);
 }
 
-chrome.runtime.sendMessage({"action":"getServiceUrl"}, function(response) {
-    var results = $(pageDef.resultListSelector);
-    if(results !== null) {
-        buildFilterWindow();
-        chrome.runtime.sendMessage({"action":"getFilters"}, function(response) {
-            console.log("Got filters!");
-            processPage(response.filters, results);
-        });
-    } else {
-        console.log("Didn't get any results!");
-    }
- });
+var results = $(pageDef.resultListSelector);
+if(results !== null) {
+	buildFilterWindow();
+	chrome.runtime.sendMessage({"action":"getFilters"}, function(response) {
+		console.log("Got filters!");
+		processPage(response.filters, results);
+	});
+} else {
+	console.log("Didn't get any results!");
+}
