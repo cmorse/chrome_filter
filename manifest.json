@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Domain search filter",
     "description": "Remove domains from search results",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "icons": {
         "128": "logo-128.png",
         "48": "logo-48.png"

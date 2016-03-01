@@ -3,9 +3,10 @@
 function filterResults(filters, results) {
     $(pageDef.resultItemSelector, results).each(function(index, value) {
         var linkText = $(pageDef.urlSelector, value).text();
+		console.log("Checking", linkText)
         for(var f in filters) {
             if(linkText.indexOf(filters[f]) != -1) {
-				console.log("Matched", linkTest)
+				console.log("Matched", linkText)
                 $(value).remove();
             }
         }
@@ -26,7 +27,7 @@ function addFilterToPage(results) {
         img.css("background-image","url(" + chrome.extension.getURL("ban.svg") + ")");
 
         img.click(function() {
-            var re = /^(https?:\/\/)?([^\/]*)/;
+            var re = /^(https?:\/\/)?([^\/ ]*)/;
 			$("#domainBlockText").val(cite.text().match(re)[2]);
 			$(".jqmWindow").jqmShow()
         });
